@@ -7,11 +7,12 @@ import Card3 from "../../components/Contacts/Card3";
 
 function Contactspage() {
   return (
-    <main className="min-h-screen bg-[#0c0b10] text-white">
+    <main className="min-h-screen bg-[#0c0b10] text-white pb-24 md:pb-0">
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent_35%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.10),transparent_30%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),transparent_35%,transparent_100%)]" />
 
-        <div className="relative mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
+        <div className="relative mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-20 xl:py-24">
           <div className="max-w-3xl">
             <PreTitle />
             <div className="mt-4">
@@ -22,17 +23,17 @@ function Contactspage() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] xl:gap-8">
             <div className="space-y-4">
-              <div className="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/12">
+              <div className="rounded-3xl border border-white/10 bg-white/6 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8">
                 <Card1 />
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/12">
+              <div className="rounded-3xl border border-white/10 bg-white/6 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8">
                 <Card2 />
               </div>
 
-              <div className="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/12">
+              <div className="rounded-3xl border border-white/10 bg-white/6 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8">
                 <Card3 />
               </div>
             </div>

@@ -1,90 +1,91 @@
-import { Menu, X } from "lucide-react";
-import useOpenBurgerMenu from "../../store/useOpenBurgerMenu";
+import { Home, UserRound, Briefcase, Mail } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { home, about, skills, contacts } from "../../routes/path.json";
 
 function Navbar() {
-  const isBurgerMenu = useOpenBurgerMenu((state) => state.isBurgerMenu);
-  const toggleBurgerMenu = useOpenBurgerMenu((state) => state.toggleBurger);
-  const closeBurgerMenu = useOpenBurgerMenu((state) => state.closeBurger);
+  const desktopLink =
+    "rounded-full px-4 py-2 text-sm font-medium text-white/70 transition-all duration-200 hover:bg-white/5 hover:text-white active:translate-y-px";
 
-  const styleLi =
-    "rounded-xl border border-white/0 px-4 py-2 text-sm font-medium text-white/70 transition-colors duration-200 hover:border-white/10 hover:bg-white/5 hover:text-white";
+  const mobileBase =
+    "group flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-white/65 transition-all duration-300 hover:bg-white/5 hover:text-white active:translate-y-px";
+
+  const activeBounce =
+    "bg-white/10 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_18px_rgba(34,211,238,0.14)] [&_svg]:animate-bounce [&_svg]:[animation-duration:0.55s]";
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/8 bg-[#0b0b10]/65 backdrop-blur-xl">
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
-        <Link
-          className="text-lg font-medium tracking-[0.18em] text-white/95 transition-colors hover:text-white"
-          to={home}
-        >
-          Portfolio
-        </Link>
+    <>
+      <header className="sticky top-0 z-50 w-full border-b border-white/8 bg-[#0b0b10]/75 backdrop-blur-xl">
+        <div className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-8">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+          <Link
+            to={home}
+            className="relative text-lg font-medium tracking-[0.18em] text-white/95"
+          >
+            Portfolio
+          </Link>
 
-        <ul className="hidden items-center gap-2 md:flex">
-          <NavLink to={home} className={styleLi}>
-            Home
-          </NavLink>
-          <NavLink to={about} className={styleLi}>
-            About
-          </NavLink>
-          <NavLink to={skills} className={styleLi}>
-            Skills
-          </NavLink>
-          <NavLink to={contacts} className={styleLi}>
-            Contacts
-          </NavLink>
-        </ul>
+          <nav className="hidden items-center gap-2 md:flex">
+            <NavLink to={home} end className={desktopLink}>
+              Home
+            </NavLink>
+            <NavLink to={about} className={desktopLink}>
+              About
+            </NavLink>
+            <NavLink to={skills} className={desktopLink}>
+              Skills
+            </NavLink>
+            <NavLink to={contacts} className={desktopLink}>
+              Contacts
+            </NavLink>
+          </nav>
+        </div>
+      </header>
 
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/90 shadow-[0_8px_24px_rgba(0,0,0,0.18)] transition-all duration-200 hover:border-white/15 hover:bg-white/8 md:hidden"
-          onClick={toggleBurgerMenu}
-          aria-label="Toggle navigation menu"
-        >
-          {isBurgerMenu ? (
-            <X className="h-4 w-4" />
-          ) : (
-            <Menu className="h-4 w-4" />
-          )}
-        </button>
+      <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/8 bg-[#0b0b10]/90 px-3 py-2 backdrop-blur-xl md:hidden">
+        <div className="mx-auto grid max-w-6xl grid-cols-4 gap-2">
+          <NavLink
+            to={home}
+            end
+            className={({ isActive }) =>
+              `${mobileBase} ${isActive ? activeBounce : ""}`
+            }
+          >
+            <Home className="h-5 w-5 transition-transform duration-200" />
+            <span>Home</span>
+          </NavLink>
 
-        {isBurgerMenu && (
-          <div className="absolute left-0 top-full z-50 w-full border-b border-white/8 bg-[#0b0b10]/80 px-4 py-3 backdrop-blur-xl md:hidden">
-            <ul className="mx-auto flex max-w-6xl flex-col gap-1">
-              <NavLink
-                to={home}
-                onClick={closeBurgerMenu}
-                className={`${styleLi} w-full text-base`}
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to={about}
-                onClick={closeBurgerMenu}
-                className={`${styleLi} w-full text-base`}
-              >
-                About
-              </NavLink>
-              <NavLink
-                to={skills}
-                onClick={closeBurgerMenu}
-                className={`${styleLi} w-full text-base`}
-              >
-                Skills
-              </NavLink>
-              <NavLink
-                to={contacts}
-                onClick={closeBurgerMenu}
-                className={`${styleLi} w-full text-base`}
-              >
-                Contacts
-              </NavLink>
-            </ul>
-          </div>
-        )}
-      </div>
-    </nav>
+          <NavLink
+            to={about}
+            className={({ isActive }) =>
+              `${mobileBase} ${isActive ? activeBounce : ""}`
+            }
+          >
+            <UserRound className="h-5 w-5 transition-transform duration-200" />
+            <span>About</span>
+          </NavLink>
+
+          <NavLink
+            to={skills}
+            className={({ isActive }) =>
+              `${mobileBase} ${isActive ? activeBounce : ""}`
+            }
+          >
+            <Briefcase className="h-5 w-5 transition-transform duration-200" />
+            <span>Skills</span>
+          </NavLink>
+
+          <NavLink
+            to={contacts}
+            className={({ isActive }) =>
+              `${mobileBase} ${isActive ? activeBounce : ""}`
+            }
+          >
+            <Mail className="h-5 w-5 transition-transform duration-200" />
+            <span>Contact</span>
+          </NavLink>
+        </div>
+      </nav>
+    </>
   );
 }
 
