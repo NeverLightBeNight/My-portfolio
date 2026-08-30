@@ -9,7 +9,7 @@ function Card1() {
         </div>
         <div>
           <p className="text-sm text-white/50">Email</p>
-          <p className="font-medium">yourmail@example.com</p>
+          <p className="font-medium">selinmedkid@gmail.com</p>
         </div>
       </div>
     </article>

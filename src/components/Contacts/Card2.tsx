@@ -9,7 +9,7 @@ function Card2() {
         </div>
         <div>
           <p className="text-sm text-white/50">Phone</p>
-          <p className="font-medium">+7 (999) 000-00-00</p>
+          <p className="font-medium">+7 (989) 193-49-09</p>
         </div>
       </div>
     </article>
