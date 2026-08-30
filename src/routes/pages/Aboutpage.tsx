@@ -1,19 +1,30 @@
 import { Code2, LayoutGrid, Rocket, ShieldCheck } from "lucide-react";
+import PreTitle from "../../components/Homepage/PreTitle";
+import Title from "../../components/Aboutpage/Title";
+import InfoUnderTitle from "../../components/Aboutpage/InfoUnderTitle";
+import FocusOn from "../../components/Aboutpage/FocusOn";
+import Strengths from "../../components/Aboutpage/Strengths";
 
 function Aboutpage() {
   type IStats = {
     title: string;
     value: string;
-  }
-  
+  };
+
+  type IStrengths = {
+    icon: React.ReactNode;
+    title: string;
+    text: string;
+  };
+
   const stats: IStats[] = [
-    { title: "Frontend focus", value: "React + TS" }, 
+    { title: "Frontend focus", value: "React + TS" },
     { title: "Responsive UI", value: "Mobile-first" },
     { title: "State management", value: "Zustand" },
     { title: "Routing", value: "React Router" },
   ];
 
-  const strengths = [
+  const strengths: IStrengths[] = [
     {
       icon: <LayoutGrid className="h-5 w-5" />,
       title: "Component structure",
@@ -40,22 +51,11 @@ function Aboutpage() {
     <main className="min-h-screen bg-background text-white">
       <section className="border-b border-white/10">
         <div className="mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-white/50">
-            About me
-          </p>
-
+          <PreTitle />
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
             <div>
-              <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
-                I build modern frontend interfaces with focus on quality and usability.
-              </h1>
-
-              <p className="mt-6 max-w-2xl text-base leading-7 text-white/70 md:text-lg">
-                I work with React, TypeScript, Tailwind, React Router, and Zustand to create
-                responsive interfaces for portfolios, dashboards, and product websites.
-                My goal is to build UI that is clean, fast, and easy to scale in a real team.
-              </p>
-
+              <Title />
+              <InfoUnderTitle />
               <div className="mt-8 flex flex-wrap gap-3">
                 {stats.map((item) => (
                   <div
@@ -65,34 +65,20 @@ function Aboutpage() {
                     <p className="text-xs uppercase tracking-[0.2em] text-white/50">
                       {item.title}
                     </p>
-                    <p className="mt-1 text-sm font-medium text-white">{item.value}</p>
+                    <p className="mt-1 text-sm font-medium text-white">
+                      {item.value}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-              <h2 className="text-xl font-semibold">What I focus on</h2>
-              <ul className="mt-5 space-y-4 text-sm text-white/75">
-                <li>• Reusable components and clean file structure.</li>
-                <li>• Responsive layouts that work across devices.</li>
-                <li>• Predictable state management for UI and application logic.</li>
-                <li>• Maintainable code that is easy to review in a team.</li>
-              </ul>
-            </div>
+            <FocusOn />
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-8">
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold md:text-3xl">Strengths</h2>
-          <p className="mt-3 max-w-2xl text-white/65">
-            This section is structured like a typical portfolio about page: short narrative,
-            key skills, and cards with clear value points.
-          </p>
-        </div>
-
+        <Strengths />
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {strengths.map((item) => (
             <article
@@ -103,7 +89,9 @@ function Aboutpage() {
                 {item.icon}
               </div>
               <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-white/70">{item.text}</p>
+              <p className="mt-2 text-sm leading-6 text-white/70">
+                {item.text}
+              </p>
             </article>
           ))}
         </div>
