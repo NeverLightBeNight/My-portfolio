@@ -48,52 +48,67 @@ function Aboutpage() {
   ];
 
   return (
-    <main className="min-h-screen bg-background text-white">
-      <section className="border-b border-white/10">
-        <div className="mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
-          <PreTitle />
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
+    <main className="min-h-screen bg-[#0c0b10] text-white">
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.12),transparent_30%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent_35%,transparent_100%)]" />
+
+        <div className="relative mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
+          <div className="max-w-3xl">
+            <PreTitle />
+            <div className="mt-4">
               <Title />
-              <InfoUnderTitle />
-              <div className="mt-8 flex flex-wrap gap-3">
-                {stats.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-xl border border-white/10 bg-white/5 px-4 py-3"
-                  >
-                    <p className="text-xs uppercase tracking-[0.2em] text-white/50">
-                      {item.title}
-                    </p>
-                    <p className="mt-1 text-sm font-medium text-white">
-                      {item.value}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
-            <FocusOn />
+            <div className="mt-5 max-w-2xl text-white/70">
+              <InfoUnderTitle />
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {stats.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-white/10 bg-white/8 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/12"
+              >
+                <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
+                  {item.title}
+                </p>
+                <p className="mt-2 text-sm font-medium text-white">
+                  {item.value}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-16 md:px-8">
-        <Strengths />
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {strengths.map((item) => (
-            <article
-              key={item.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-white/7"
-            >
-              <div className="inline-flex rounded-xl border border-white/10 bg-white/10 p-3">
-                {item.icon}
-              </div>
-              <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-white/70">
-                {item.text}
-              </p>
-            </article>
-          ))}
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <aside className="lg:sticky lg:top-24">
+            <FocusOn />
+          </aside>
+
+          <div>
+            <Strengths />
+            <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {strengths.map((item) => (
+                <article
+                  key={item.title}
+                  className="group rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/12"
+                >
+                  <div className="inline-flex rounded-2xl border border-white/10 bg-white/10 p-3 text-cyan-300 shadow-lg shadow-cyan-500/10">
+                    {item.icon}
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-white/70">
+                    {item.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </main>

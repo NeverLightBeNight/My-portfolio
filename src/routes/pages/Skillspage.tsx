@@ -49,45 +49,60 @@ function Skillspage() {
   ];
 
   return (
-    <main className="min-h-screen bg-background text-white">
-      <section className="mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
-        <PreTitle />
-        <Title />
-        <InfoUnderTitle />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {skillGroups.map((group) => (
-            <article
-              key={group.title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:-translate-y-1 hover:bg-white/7"
-            >
-              <div className="inline-flex rounded-xl border border-white/10 bg-white/10 p-3">
-                {group.icon}
-              </div>
+    <main className="min-h-screen bg-[#0c0b10] text-white">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.16),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.12),transparent_30%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent_35%,transparent_100%)]" />
 
-              <h2 className="mt-4 text-xl font-semibold">{group.title}</h2>
-
-              <div className="mt-4 flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-sm text-white/80"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <section className="mt-16 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur md:p-8">
-          <h2 className="text-2xl font-semibold">How I work</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            <ReusableCard />
-            <ResponsiveCard />
-            <CleanCard />
+        <div className="relative mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
+          <div className="max-w-3xl">
+            <PreTitle />
+            <div className="mt-4">
+              <Title />
+            </div>
+            <div className="mt-5 max-w-2xl text-white/70">
+              <InfoUnderTitle />
+            </div>
           </div>
-        </section>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {skillGroups.map((group) => (
+              <article
+                key={group.title}
+                className="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/12"
+              >
+                <div className="inline-flex rounded-2xl border border-white/10 bg-white/10 p-3 text-cyan-300 shadow-lg shadow-cyan-500/10">
+                  {group.icon}
+                </div>
+
+                <h2 className="mt-4 text-xl font-semibold text-white">
+                  {group.title}
+                </h2>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-sm text-white/80"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <section className="mt-16 rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8">
+            <h2 className="text-2xl font-semibold text-white">How I work</h2>
+
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <ReusableCard />
+              <ResponsiveCard />
+              <CleanCard />
+            </div>
+          </section>
+        </div>
       </section>
     </main>
   );
