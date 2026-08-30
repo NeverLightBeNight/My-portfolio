@@ -1,7 +1,12 @@
 import { Code2, LayoutGrid, Rocket, ShieldCheck } from "lucide-react";
 
 function Aboutpage() {
-  const stats = [
+  type IStats = {
+    title: string;
+    value: string;
+  }
+  
+  const stats: IStats[] = [
     { title: "Frontend focus", value: "React + TS" }, 
     { title: "Responsive UI", value: "Mobile-first" },
     { title: "State management", value: "Zustand" },
