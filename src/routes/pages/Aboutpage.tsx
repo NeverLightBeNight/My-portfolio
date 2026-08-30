@@ -50,10 +50,8 @@ function Aboutpage() {
   return (
     <main className="min-h-screen bg-[#0c0b10] text-white">
       <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.12),transparent_30%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent_35%,transparent_100%)]" />
-
-        <div className="relative mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.10),transparent_30%)]" />
+        <div className="relative mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-20 xl:py-24">
           <div className="max-w-3xl">
             <PreTitle />
             <div className="mt-4">
@@ -68,7 +66,7 @@ function Aboutpage() {
             {stats.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-white/10 bg-white/8 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/12"
+                className="rounded-2xl border border-white/10 bg-white/8 p-5 shadow-2xl shadow-black/20 backdrop-blur-xl"
               >
                 <p className="text-[11px] uppercase tracking-[0.28em] text-white/45">
                   {item.title}
@@ -82,19 +80,22 @@ function Aboutpage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 md:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-          <aside className="lg:sticky lg:top-24">
+      <section className="mx-auto max-w-6xl px-4 py-14 md:px-8 md:py-20 xl:py-24">
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] xl:gap-10">
+          <div className="rounded-3xl border border-white/10 bg-white/6 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8">
             <FocusOn />
-          </aside>
+          </div>
 
-          <div>
-            <Strengths />
-            <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="space-y-4">
+            <div className="max-w-2xl">
+              <Strengths />
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
               {strengths.map((item) => (
                 <article
                   key={item.title}
-                  className="group rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/12"
+                  className="rounded-3xl border border-white/10 bg-white/8 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/12"
                 >
                   <div className="inline-flex rounded-2xl border border-white/10 bg-white/10 p-3 text-cyan-300 shadow-lg shadow-cyan-500/10">
                     {item.icon}

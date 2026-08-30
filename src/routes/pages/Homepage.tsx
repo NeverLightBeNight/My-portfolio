@@ -13,7 +13,6 @@ function Homepage() {
     <main className="min-h-screen bg-background text-white">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_45%)]" />
-        <div className="absolute inset-0 bg-linear-to-b from-white/5 via-transparent to-transparent" />
         <div className="relative mx-auto flex max-w-6xl flex-col items-center px-4 py-20 text-center md:px-8 lg:py-28">
           <PreTitle />
           <Title />

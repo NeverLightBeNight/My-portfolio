@@ -51,9 +51,7 @@ function Skillspage() {
   return (
     <main className="min-h-screen bg-[#0c0b10] text-white">
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.16),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.12),transparent_30%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),transparent_35%,transparent_100%)]" />
-
         <div className="relative mx-auto max-w-6xl px-4 py-16 md:px-8 md:py-24">
           <div className="max-w-3xl">
             <PreTitle />
